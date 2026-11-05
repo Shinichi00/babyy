@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8b5ac7">
+<title>A Little Surprise for Milo 💜</title>
+<style>
+:root{--deep:#6f3fa5;--purple:#8b5ac7;--lav:#eadbfa;--pale:#f8f2ff;--pink:#f7d9ef;--ink:#56366f}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:"Trebuchet MS",Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#f7edff,#eee0ff 48%,#fceafa);overflow-x:hidden}
+main{width:min(720px,92%);margin:36px auto 60px;position:relative;z-index:2}
+.card{background:#ffffffdf;border:1px solid #fff;border-radius:28px;padding:clamp(22px,5vw,42px);text-align:center;box-shadow:0 18px 55px #7950a322;backdrop-filter:blur(8px)}
+.pill{display:inline-block;padding:8px 14px;border-radius:999px;background:#f1e5ff;color:var(--deep);font-size:.85rem;font-weight:bold}
+h1{font-size:clamp(2.2rem,7vw,3.7rem);line-height:1.05;color:var(--deep);margin:18px 0 10px}
+h2{color:var(--deep);margin:10px 0}
+p{line-height:1.7}
+.sub{font-size:1.08rem;max-width:510px;margin:12px auto 22px}
+.bear{font-size:clamp(5rem,18vw,8rem);display:inline-block;animation:bob 2s ease-in-out infinite;filter:drop-shadow(0 10px 5px #8050a322)}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-13px) rotate(4deg)}}
+button,.button{border:0;border-radius:999px;padding:14px 23px;background:linear-gradient(135deg,#9b6bd0,#7745b1);color:white;font-size:1rem;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:0 8px 18px #8050a344;transition:.2s}
+button:hover,.button:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.secondary{background:#f0e4fb;color:var(--deep);box-shadow:none}
+.controls{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px}
+.hidden{display:none!important}
+.note{font-size:.9rem;color:#806b91}
+.gifrow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.gifrow img{width:115px;height:115px;object-fit:cover;border-radius:20px;background:#f3e7ff}
+.tenor-wrap{width:min(280px,100%);margin:16px auto;border-radius:22px;overflow:hidden;background:#f3e7ff;box-shadow:0 8px 22px #8050a322}
+.tenor-gif-embed{width:100%;margin:0 auto}
+.message{background:#f7efff;border-radius:20px;padding:18px;margin:20px 0}
+.hearts{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.heart{position:absolute;bottom:-40px;opacity:.65;animation:floatUp linear infinite}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+.footer{margin-top:24px;font-size:.88rem;color:#8c75a0}
+a{color:var(--deep)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts"></div>
+<main>
+<section class="card" id="welcome">
+  <span class="pill">A tiny gift, made with love 💜</span>
+  <div class="bear" aria-label="cute teddy bear">🧸</div>
+  <h1>Hi, Baby! 💜</h1>
+  <p class="sub">I made you something. It's filled with smiles, silly questions, warm hugs, and reminders of how special you are.</p>
+  <div class="tenor-wrap" aria-label="Animated cute bear welcome GIF">
+    <div class="tenor-gif-embed" data-postid="15612544517355530850" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+      <a href="https://tenor.com/view/cute-bear-sylvia-emoji-gif-15612544517355530850">Cute welcome bear GIF</a>
+    </div>
+  </div>
+  <div class="controls">
+    <button id="start">Open my surprise ✨</button>
+    <button class="secondary" id="musicBtn">♫ Play the song</button>
+  </div>
+  <p class="note">A little reminder: you don't have to be having a perfect day to deserve love.</p>
+</section>
+
+<section class="card hidden" id="cheer">
+  <span class="pill">Your personal cheer-up corner 🌷</span>
+  <div class="bear">🐰</div>
+  <h2>Hey, flawless Girl!</h2>
+  <p class="sub">Whatever kind of day you're having, take a breath. You're doing better than you think, and you don't have to figure everything out all at once.</p>
+  <div class="message" id="cheerMessage">You are allowed to rest. You are allowed to grow at your own pace. And you are always worth cheering for. 💜</div>
+  <div class="controls">
+    <button id="another">Cheer me up again 🥺</button>
+    <button class="secondary" id="toQuestions">Continue to your questions 💌</button>
+  </div>
+</section>
+
+<section class="card hidden" id="questions">
+  <span class="pill">A little fun for us 💕</span>
+  <div class="bear">🐻‍❄️</div>
+  <h2>Ready, Milo?</h2>
+  <p class="sub">The next part is a cute little questionnaire made just for you.</p>
+  <div class="message">
+    <strong>One tiny request:</strong><br>
+    Answer honestly, have fun, and don't overthink it. There's no wrong answer when it's about you. 💜
+  </div>
+  <a class="button" id="formLink" href="#" target="_blank" rel="noopener">Start the Google Form 💜</a>
+  <p class="note" id="formHint">Your personal questionnaire is connected and ready, Milo! 💜</p>
+</section>
+
+<section class="card hidden" id="ending">
+  <div class="bear">💜</div>
+  <span class="pill">A message from Baby</span>
+  <h2>One last thing, Baby...</h2>
+  <p class="sub">I hope you never forget how special you are. On your good days, I'll celebrate with you. On your difficult days, I'll still be cheering for you. You don't have to be strong every second.</p>
+  <div class="message">
+    If I could give you one thing, it would be the chance to see yourself through my eyes. Maybe then you'd understand how precious you are to me.<br><br>
+    Thank you for being you. Keep smiling, keep dreaming, and please remember that you deserve kindness—including from yourself.<br><br>
+    <strong>With all my love,</strong><br>
+    <strong>Baby 🧸💜</strong>
+  </div>
+  <button id="celebrate">Send some hearts! 💗</button>
+  <p class="footer">Made especially for baby, with love by me.</p>
+</section>
+</main>
+
+<audio id="music" loop preload="none"></audio>
+<script>
+// =====================================================
+// PERSONALIZE THESE TWO SETTINGS BEFORE SHARING
+// =====================================================
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfWU6FtJn8G0cEgoXWPHoSW-hjdiLR7R2-F0cfj6hAux0eyfA/viewform";
+const MUSIC_LINK = "https://www.youtube.com/watch?v=FH01mvERroM&list=RDFH01mvERroM&start_radio=1";
+
+const sections = ["welcome","cheer","questions","ending"];
+function show(id){
+  sections.forEach(s=>document.getElementById(s).classList.toggle("hidden",s!==id));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("start").addEventListener("click",()=>show("cheer"));
+document.getElementById("toQuestions").addEventListener("click",()=>{
+  const link=document.getElementById("formLink");
+  if(GOOGLE_FORM_URL.startsWith("https://")){
+    link.href=GOOGLE_FORM_URL;
+    document.getElementById("formHint").textContent="Your little questionnaire is ready. Have fun, Milo! 💜";
+  }else{
+    link.href="#";
+    document.getElementById("formHint").textContent="Baby still needs to paste the Google Form share link into this website's settings.";
+    link.addEventListener("click",e=>{if(!GOOGLE_FORM_URL.startsWith("https://")){e.preventDefault();alert("The Google Form link hasn't been added yet. Ask Baby to finish the setup! 💜");}},{once:true});
+  }
+  show("questions");
+});
+const cheers=[
+ "You are doing your best, and that is something to be proud of. 💜",
+ "Tiny steps are still progress. Be gentle with yourself today. 🌷",
+ "Reminder: you are loved on your productive days and your lazy days. 🧸",
+ "You deserve the same patience and kindness you give to other people. 💕",
+ "Whatever happens today, you don't have to face every feeling all at once. 🤗",
+ "Your smile is lovely, but you don't have to smile when you don't feel like it. 💜"
+];
+document.getElementById("another").addEventListener("click",()=>{
+ const el=document.getElementById("cheerMessage");
+ el.textContent=cheers[Math.floor(Math.random()*cheers.length)];
+ el.animate([{transform:"scale(.96)",opacity:.4},{transform:"scale(1)",opacity:1}],{duration:350});
+});
+const musicBtn=document.getElementById("musicBtn");
+musicBtn.addEventListener("click",()=>{
+ window.open(MUSIC_LINK,"_blank","noopener,noreferrer");
+});
+document.getElementById("celebrate").addEventListener("click",()=>{
+ for(let i=0;i<24;i++){
+  const h=document.createElement("div");h.textContent=["💜","💗","💕","✨"][i%4];
+  h.style.position="fixed";h.style.left=Math.random()*100+"vw";h.style.top="75vh";
+  h.style.fontSize=(18+Math.random()*24)+"px";h.style.zIndex=9;h.style.pointerEvents="none";
+  document.body.appendChild(h);
+  h.animate([{transform:"translateY(0) scale(.6)",opacity:1},{transform:`translate(${(Math.random()-.5)*160}px,-${180+Math.random()*350}px) rotate(35deg) scale(1.3)`,opacity:0}],{duration:1500+Math.random()*1000,easing:"ease-out"}).onfinish=()=>h.remove();
+ }
+});
+const heartBox=document.getElementById("hearts");
+for(let i=0;i<22;i++){
+ const h=document.createElement("span");h.className="heart";h.textContent=["💜","♡","✨"][i%3];
+ h.style.left=Math.random()*100+"%";h.style.animationDuration=(8+Math.random()*12)+"s";
+ h.style.animationDelay=(-Math.random()*18)+"s";h.style.fontSize=(14+Math.random()*20)+"px";
+ heartBox.appendChild(h);
+}
+</script>
+<script async src="https://tenor.com/embed.js"></script>
+</body>
+</html>
